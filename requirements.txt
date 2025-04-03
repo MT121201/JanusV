@@ -6,6 +6,7 @@ accelerate==0.21.0
 sentencepiece==0.1.96
 attrdict
 einops==0.6.1
+timm
 
 # for gradio demo
 gradio==3.48.0
