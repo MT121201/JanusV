@@ -1,0 +1,1 @@
+from VisualSearch.finetune.multimodal_trainer import *
