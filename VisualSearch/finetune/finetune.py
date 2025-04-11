@@ -18,17 +18,27 @@ def parse_args():
     parser.add_argument('--optimizer_name', type=str, default="AdamW")
     parser.add_argument('--lora_config', type=str, required=True)
     parser.add_argument('--training_args', type=str, required=True)
+    parser.add_argument('--deepspeed_config', type=str, required=True)  
+    parser.add_argument('--local_rank', type=int, default=-1)  
 
     return parser.parse_args()
 
 def main():
     args = parse_args()
 
+    #  Initialize distributed training if local_rank is set
+    if args.local_rank != -1:
+        torch.distributed.init_process_group(backend="nccl")
+        torch.cuda.set_device(args.local_rank)
+        device = torch.device("cuda", args.local_rank)
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     # Load LoRA configuration
     lora_config = eval(args.lora_config)
 
     # Load DeepSpeed configuration file
-    deepspeed_config_path = args.deepspeed_config
+    # deepspeed_config_path = args.deepspeed_config
 
     # Start the fine-tuning process with DeepSpeed
     trainer = EnhancedMultiModalTrainer(
@@ -41,6 +51,7 @@ def main():
         user_question=args.user_question,
         optimizer_name=args.optimizer_name,
         lora_config=lora_config,
+        deepspeed_config=args.deepspeed_config,
         training_args=eval(args.training_args)
     )
 

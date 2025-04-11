@@ -195,11 +195,16 @@ class EnhancedMultiModalTrainer:
             self.pretrained_model_path,
             slow_image_processor_class="AutoImageProcessor"
         )
+        if local_rank != -1:
+            torch.cuda.set_device(local_rank)
+            device = torch.device(f"cuda:{local_rank}")
+        else:
+            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         self.model = EnhancedMultiModalModel.from_pretrained(
             self.pretrained_model_path,
             torch_dtype=torch.float16,
-            device_map="auto"
-        )
+        ).to(device)
 
         # Configure LoRA
         lora_config = LoraConfig(**self.lora_config)
@@ -297,6 +302,7 @@ class EnhancedMultiModalTrainer:
             num_train_epochs=self.max_epochs,
             per_device_train_batch_size=self.batch_size,
             learning_rate=self.lr,
+            deepspeed=self.deepspeed_config,
             **self.training_args,
         )
 

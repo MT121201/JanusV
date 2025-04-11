@@ -18,13 +18,13 @@ export LORA_CONFIG='{
     "task_type": "CAUSAL_LM"
 }'
 export TRAINING_ARGS='{
-    "fp16": true,
+    "fp16": True,
     "max_grad_norm": 1.0,
     "save_strategy": "epoch",
     "evaluation_strategy": "no",
     "logging_steps": 50,
     "save_total_limit": 2,
-    "remove_unused_columns": false
+    "remove_unused_columns": False
 }'
 
 # Set path to DeepSpeed ZeRO-3 configuration file
