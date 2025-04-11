@@ -67,3 +67,14 @@ Thumbs.db
 
 # Local configuration files
 *.env
+
+# dataset files
+*.txt
+*.csv
+# images
+*.jpg
+*.png
+# model files
+*.pth
+# Visual Search
+./VisualSearch/test/
