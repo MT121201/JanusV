@@ -11,4 +11,4 @@ git clone https://github.com/MT121201/JanusV.git
 Refer to the [installation guide](doc/installation.md) for detailed setup instructions.
 
 ## Development Progress
-- Visual search model (inherited from VStar) is currently under development on the `vsm` branch.
+- [Visual search model](VisualSearch) (inherited from VStar) is currently under development on the `vsm` branch.
