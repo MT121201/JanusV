@@ -15,27 +15,7 @@ The VSM model is fine-tuned separately from JanusPro. Current work involves fine
 
 ## Training Data for the VSM Model
 
-The training data consists of the following datasets:
-
-1. **General Segmentation and Detection Datasets**  
-    - [COCO-2017](https://cocodataset.org/#download)  
-    - [COCO-Stuff](https://github.com/nightrome/cocostuff)  
-    - [PACO-LVIS](https://github.com/facebookresearch/paco/tree/main#dataset-setup)  
-    - [Objects364-V2](https://www.objects365.org/overview.html)
-
-2. **Referring Segmentation Datasets**  
-    - [refCOCO](https://web.archive.org/web/20220413011718/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip)  
-    - [refCOCO+](https://web.archive.org/web/20220413011656/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip)  
-    - [refCOCOg](https://web.archive.org/web/20220413012904/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip)  
-    - [refCLEF](https://web.archive.org/web/20220413011817/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refclef.zip) ([saiapr_tc-12](https://web.archive.org/web/20220515000000/http://bvisionweb1.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip))
-
-3. **Mixed Grounding Datasets**  
-    Follow the instructions [here](https://github.com/ashkamath/mdetr/blob/main/.github/pretrain.md) to prepare the GQA images, Flickr30K images, and pre-processed annotations.
-
-4. **Visual Question Answering Dataset**  
-    - [LLaVA-80K Instruction Data](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/llava_instruct_80k.json)  
-    - [Possible Location QA Data](https://huggingface.co/datasets/craigwu/vsm_vqa_data)  
-    - **Image Data:** COCO-2017
+Please refer to this [doc](../doc/datasets.md) for datasets
 
 ### Data Organization
 After downloading the datasets, organize them as follows:
