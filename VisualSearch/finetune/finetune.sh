@@ -7,7 +7,7 @@ export OUTPUT_DIR="./test1"
 export BATCH_SIZE=2
 export MAX_EPOCHS=1
 export LR=3e-4
-export USER_QUESTION="请描述一下这张图片的内容." 
+export USER_QUESTION="Describe the image in detail, including the people, objects, and actions present. Provide a comprehensive analysis of the scene." 
 export OPTIMIZER_NAME="AdamW"
 export LORA_CONFIG='{
     "r": 16,
